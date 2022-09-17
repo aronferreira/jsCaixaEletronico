@@ -33,26 +33,26 @@
 
 			switch(escolha) {
 				case 1: 
-				ver_saldo();
-				break;
+					ver_saldo();
+					break;
 				case 2: 
-				ver_extrato();
-				break;
+					ver_extrato();
+					break;
 				case 3: 
-				fazer_saque();
-				break;
+					fazer_saque();
+					break;
 				case 4: 
-				fazer_deposito();
-				break;
+					fazer_deposito();
+					break;
 				case 5: 
-				fazer_transferencia();
-				break;
+					fazer_transferencia();
+					break;
 				case 6: 
-				sair();
-				break;
+					sair();
+					break;
 				default: 
-				erro();
-				break;
+					erro();
+					break;
 			}
 		}
 
@@ -132,16 +132,10 @@
 
 			if (inserirSenha === senha){
 			var transf = parseFloat(prompt("Insira o valor a ser transferido.")), conta = parseInt(prompt("Insira o número da conta"));
-			} else {
-				alert("Senha incorreta.");
-				fazer_transferencia();
-			}
-
-
-			if (isNaN(transf) || transf === '') {
-				alert('Por favor, informe um número.');
-				fazer_transferencia();
-			} else if (saldo - transf <= 0){
+				if (isNaN(transf) || transf === ''){
+					alert("Por favor, informe um número.");
+					fazer_transferencia();
+				} else if (saldo - transf <= 0){
 				window.alert("Operação não autorizada");
 				fazer_transferencia();
 			} else {
@@ -151,6 +145,15 @@
 				alert("Transferência concluída com sucesso! Seu saldo agora é de: " + saldo);
 				inicio();
 			}
+
+
+			} else {
+				alert("Senha incorreta.");
+				fazer_transferencia();
+			}
+
+
+			
 
 		}
 
@@ -162,7 +165,7 @@
 		function sair() {
 			var confirma = confirm('Você deseja sair?');
 			if (confirma) {
-				alert(nome + " foi um prazer ter você por aqui!")
+				alert(nome + " foi um prazer ter você por aqui!");
 				window.close();
 			} else {
 				inicio();
